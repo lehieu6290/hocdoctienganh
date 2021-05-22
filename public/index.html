@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Học đọc tiếng Anh</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
+  </head>
+  <body>
+  
+    <section id="when-login">
+      <nav id="navbar">
+        <div id="logo-container">
+          <a href=""><img src="./images/logo.png" id="logo"></a>
+        </div>
+
+        <div id="search-container">
+          <div id="search-bar">
+            <img src="./images/search.png" id="search-icon">
+            <input id="search-input" type="text" placeholder="Nhập để tìm kiếm từ vựng" autocomplete="off">
+            <img id="search-clear-btn" src="./images/close.png">
+          </div>
+
+          <div id="search-result-container">
+            <div id="hide-shadow"></div>
+            <div id="search-result">
+              <!-- <div class="search-item">
+                <p>hello</p>
+                <p>xin chào</p>
+              </div>
+              <div class="search-item">
+                <p>hello</p>
+                <p>xin chào</p>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <div id="tool">
+          <a href="/"><img src="./images/search-dictionary.png" class="tool-icon"></a>
+          <a href="test.html"><img src="./images/test.png" class="tool-icon"></a>
+          <img src="./images/logout.png" id="logout-btn" class="tool-icon">
+        </div>
+      </nav>
+
+      <div id="setting-container">
+        <img src="./images/settings.png" class="tool-icon" id="setting-icon">
+        <div id="setting">
+          <p>Thời gian thông báo</p>
+          <select id="notification-time-input">
+            <option value="5">5 phút</option>
+            <option value="10">10 phút</option>
+            <option value="15">15 phút</option>
+            <option value="20">20 phút</option>
+            <option value="30">30 phút</option>
+            <option value="60">60 phút</option>
+          </select>
+        </div>
+      </div>
+      
+      <section id="card-container">
+        <!-- <div id="card">
+          <p id="english">hello</p>
+          <p id="vietnamese">xin chào</p>
+          <p id="sentence"></p>
+          <div id="action-container">
+            <div id="card-overlay"></div>
+            <div id="action">
+              <div class="action-image-container edit">
+                <img src="./images/edit.png" id="action-edit">
+              </div>
+              <div class="action-image-container delete">
+                <img src="./images/delete.png" id="delete-edit">
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </section>
+    </section>
+
+    <section id="when-logout">
+      <div id="logo">
+        <img src="./images/logo.png"><br>
+        <p>Học đọc tiếng Anh</p>
+      </div>
+      <div id="login-btn-container">
+        <p>Vui lòng đăng nhập để sử dụng!</p>
+        <div id="login-btn">
+          <div id="center">
+            <img src="./images/google.png">
+            <span>Đăng nhập với Google</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="form-container" class="form-container">
+      <div id="overlay"></div>
+      <div class="form">
+        <p id="form-title" class="form-title"></p>
+        <input id="form-id-input" type="hidden">
+
+        <div class="form-input-container">
+          <label for="form-english-input"><img src="./images/english-icon.png"></label>
+          <div>
+            <input id="form-english-input" type="text" placeholder="Tiếng Anh" autocomplete="off">
+            <p id="form-english-error" class="form-error"></p>
+          </div>
+        </div>
+        
+        <div class="form-input-container">
+          <label for="form-vietnamese-input"><img src="./images/vietnamese-icon.png"></label>
+          <div>
+            <input id="form-vietnamese-input" type="text" placeholder="Nghĩa tiếng Việt" autocomplete="off">
+            <p id="form-vietnamese-error" class="form-error"></p>
+          </div>  
+        </div>
+
+        <div class="form-input-container">
+          <label for="form-sentence-input"><img src="./images/sentence-icon.png"></label>
+          <input id="form-sentence-input" type="text" placeholder="Câu ngợi nhớ" autocomplete="off">
+        </div>
+
+        <div class="form-error-container">
+          <img src="./images/loading.gif" id="form-loading">
+          <p class="form-error" id="form-add-error"></p>
+        </div>
+
+        <div class="form-button-container">
+          <button id="form-add-btn"></button>
+          <button id="form-close-btn" class="form-close-btn">Hủy</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="delete-form-container" class="form-container">
+      <div id="overlay"></div>
+      <div class="form">
+        <p class="form-title">Chắc chắn xóa từ vựng này?</p>
+
+        <div class="form-error-container">
+          <img src="./images/loading.gif" id="delete-form-loading">
+          <p class="form-error" id="form-delete-error"></p>
+        </div>
+
+        <div class="form-button-container">
+          <button id="form-delete-btn">Xóa</button>
+          <button id="delete-form-close-btn" class="form-close-btn">Hủy</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="data-loading-container">
+      <img src="./images/loading.gif">
+      <p>Đang tải dữ liệu. Vui lòng chờ!</p>
+    </div>
+
+    <div id="data-loading-error-container">
+      <img src="./images/error.png">
+      <p id="error-title">Lỗi tải dữ liệu!</p>
+      <p>Vui lòng kiểm tra kết nối internet và tải lại trang</p>
+    </div>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+    <script src="app.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
