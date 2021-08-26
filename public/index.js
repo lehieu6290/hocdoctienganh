@@ -258,6 +258,12 @@ function updateVocabulary(oldEnglish){
     });
 }
 
+//Undo
+var undoContainer = document.getElementById("undo-container");
+
+document.getElementById('undo-close-btn').onclick = () => undoContainer.style.display = 'none';
+
+//Delete
 var deleteFormContainer = document.getElementById("delete-form-container");
 var deleteFormCloseBtn = document.getElementById("delete-form-close-btn");
 var formDeleteBtn = document.getElementById("form-delete-btn");
@@ -281,6 +287,7 @@ function deleteVocabulary(id){
         deleteFormContainer.style.display = 'none';
         deleteList(id);
         createRandomCard();
+        undoContainer.style.display = 'flex';
     })
     .catch((error) => {
         deleteFormLoading.style.display = 'none';
@@ -378,14 +385,26 @@ function deleteList(id){
 //Setting
 var settingBtn = document.getElementById('setting-icon');
 var isOpenSetting = 'none';
+var notificationCheckbox = document.getElementById('notification-checkbox');
+var notificationTimeInput = document.getElementById('notification-time-input');
 
 settingBtn.onclick = () => {
     isOpenSetting = isOpenSetting == 'none' ? 'block' : 'none';
     document.getElementById('setting').style.display = isOpenSetting;
 }
 
-document.getElementById('notification-time-input').onchange = () => {
+notificationTimeInput.onchange = () => {
     clearInterval(interval);
-    notificationTime = document.getElementById('notification-time-input').value * 60000;
+    notificationTime = notificationTimeInput.value * 60000;
     interval = setInterval(showNotification, notificationTime);
+}
+
+notificationCheckbox.onchange = () => {
+    if(notificationCheckbox.checked){
+        interval = setInterval(showNotification, notificationTime);
+        notificationTimeInput.removeAttribute('disabled');
+    }else{
+        clearInterval(interval);
+        notificationTimeInput.setAttribute('disabled', '');
+    }
 }
